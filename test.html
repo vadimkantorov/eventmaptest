@@ -2,9 +2,10 @@
 ---
 <html>
     <body>
+        {% assign events_grouped_by_country = site.data.events | sort: "country" | group_by: "country" %}
         <ul>
-        {% for row in site.data.events %}
-            <li>{{ row.city }}, {{ row.country }}</li>
+        {% for row in events_grouped_by_country %}
+            <li>{{ row | inspect }}</li>
         {% endfor %}
         </ul>
     </body>
