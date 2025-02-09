@@ -1,4 +1,9 @@
 <html>
     <body>
+        <ul>
+        {% for row in site.data.events %}
+        <li>{{ row[0] }}</li>
+        {% endfor %}
+        </ul>
     </body>
 </html>
