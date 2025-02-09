@@ -4,7 +4,7 @@
     <body>
         <ul>
         {% for row in site.data.events %}
-        <li><pre>{{ row | inspect }}</pre></li>
+            <li>{{ row.city }}, {{ row.country }}</li>
         {% endfor %}
         </ul>
     </body>
