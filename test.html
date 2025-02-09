@@ -62,7 +62,7 @@ a.eventlink, a.eventlink:visited{
 {% for g in events_grouped_by_country %}{% assign gg = g.items | sort: "city" %}
     '<tr class=""><td class="t431__td t-text" width="8%"><b>{{ g.name }}</b></td><td class="t431__td t-text" width="5%"></td><td class="t431__td t-text" width="45%"></td><td class="t431__td t-text" width="42%"></td></tr> <!-- t431__evenrow t431__oddrow -->
     {% for e in gg %}
-    <tr>{{ e.city }}</tr>
+        <tr class="event" data-latlon="latlon" data-country="{{ e.country }}" data-city="{{ e.city }}" data-mapmarkerkey="{{ e.country }}-{{ e.city }}" data-date="date0" data-time="date1"><td class="t431__td t-text" width="8%">{{ e.city }}</td><td class="t431__td t-text" width="5%">{{ e.eventurl }}</td><td class="t431__td t-text" width="45%">{{ e.orgurl }}</td><td class="t431__td t-text" width="42%"></td></tr>
     {% endfor %}
 {% endfor %}
 </tbody></table>
