@@ -60,9 +60,9 @@ a.eventlink, a.eventlink:visited{
 {% assign events_grouped_by_country = site.data.events | sort: "country" | group_by: "country" %}
 <table class="t431__table" data-table-width="8%;5%;45%;42%" data-target-blank="on" width="100%"><tbody class="t431__tbody" id="allevents">
 {% for g in events_grouped_by_country %}{% assign gg = g.items | sort: "city" %}
-    <li>{{ g.name }}</li>
+    <tr>{{ g.name }}</tr>
     {% for e in gg %}
-    <li>{{ e.city }}</li>
+    <tr>{{ e.city }}</tr>
     {% endfor %}
 {% endfor %}
 </tbody></table>
