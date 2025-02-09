@@ -4,8 +4,11 @@
     <body>
         {% assign events_grouped_by_country = site.data.events | sort: "country" | group_by: "country" %}
         <ul>
-        {% for row in events_grouped_by_country %}
-            <li>{{ row | inspect }}</li>
+        {% for g in events_grouped_by_country %}
+            <li>{{ g.name }}</li>
+            {% for e in g.items %}
+            <li>{{ e.city }}</li>
+            {% endfor %}
         {% endfor %}
         </ul>
     </body>
