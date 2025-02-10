@@ -11,9 +11,10 @@ on:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: read
+  contents: write #read
   pages: write
   id-token: write
+#permissions: write-all
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -34,7 +35,7 @@ jobs:
         run: |
             curl 'https://docs.google.com/spreadsheets/d/1PSvUWOzpun6cZVFtp2bL_G6hs049uMHOkO02cErS65k/gviz/tq?tqx=out:csv' > _data/events.csv
             git config --global user.name "${GITHUB_ACTOR}" && git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-            git diff --exit-code || (git commit -a -m ...  && git push)
+            git diff --quiet --exit-code || (git commit -a -m ...  && git push)
       - name: Prepend frontmatter to Tilda html
         run: sed -i '1i---\n---' test.html
       - name: Build with Jekyll
