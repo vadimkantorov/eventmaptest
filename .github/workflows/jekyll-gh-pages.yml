@@ -30,9 +30,9 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      #- name: Update data
-      #  run: |
-      #      curl 'https://docs.google.com/spreadsheets/d/1PSvUWOzpun6cZVFtp2bL_G6hs049uMHOkO02cErS65k/gviz/tq?tqx=out:csv' > _data/events.csv
+      - name: Update data
+        run: |
+            curl 'https://docs.google.com/spreadsheets/d/1PSvUWOzpun6cZVFtp2bL_G6hs049uMHOkO02cErS65k/gviz/tq?tqx=out:csv' > _data/events.csv
       #      git config --global user.name "${GITHUB_ACTOR}" && git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
       #      git diff --quiet --exit-code || (git commit -a -m ...  && git push)
       - name: Prepend frontmatter to Tilda html
