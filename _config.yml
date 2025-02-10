@@ -1,6 +1,2 @@
-defaults:
-  -
-    scope:
-      path: "test.html"
-    values:
-      layout: "default"
+include: 
+  - test.html
