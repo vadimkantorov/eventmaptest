@@ -1,0 +1,19 @@
+name: update
+on: workflow_dispatch
+
+permissions: write-all
+
+jobs:
+
+  update:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update
+        run: |
+            curl 'https://docs.google.com/spreadsheets/d/1PSvUWOzpun6cZVFtp2bL_G6hs049uMHOkO02cErS65k/gviz/tq?tqx=out:csv' > _data/events.csv
+            git config --global user.name "${GITHUB_ACTOR}"
+            git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+            git commit -a -m ...
+            git push
